@@ -72,7 +72,7 @@
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
     
     // Establecemos la relacion en parse
-    PFRelation *friendsRelation = [self.currentUser relationForKey:@"friendsRelation"];
+    PFRelation *friendsRelation = [self.currentUser relationForKey:@"friendsRelations"];
     PFUser *user = [self.allUsers objectAtIndex:indexPath.row];
     [friendsRelation addObject:user];
     [self.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
