@@ -7,6 +7,7 @@
 //
 
 #import "FriendsViewController.h"
+#import "EditFriendsViewController.h"
 
 @interface FriendsViewController ()
 
@@ -14,10 +15,14 @@
 
 @implementation FriendsViewController
 
-- (void)viewDidLoad {
-    [super view];
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // Usamos este método para poder recargar los amigos cada vez que la vista aparezca,
+    // si lo ponemos en viewDidLoad solo aparecen la primera vez que se carga
+    
     // Creamos la propiedad relacion y obtenemos el dato para el usuario logueado
-    self.friendsRelation = [[PFUser currentUser] relationForKey:@"friendsRelation"];
+    self.friendsRelation = [[PFUser currentUser] relationForKey:@"friendsRelations"];
     // Hacemos la consulta de la relacion
     PFQuery *query = [self.friendsRelation query];
     [query orderByAscending:@"username"];
@@ -30,8 +35,10 @@
             [self.tableView reloadData];
         }
     }];
-    
-    
+}
+
+- (void)viewDidLoad {
+    [super view];
 }
 
 
@@ -95,14 +102,24 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    
+    
+    if ([segue.identifier isEqualToString:@"showEditFriends"]) {
+        
+        EditFriendsViewController *viewController = (EditFriendsViewController *)segue.destinationViewController;
+        viewController.friends = [NSMutableArray arrayWithArray:self.friends];
+        
+    }
+
 }
-*/
+
 
 @end

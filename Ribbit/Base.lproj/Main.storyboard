@@ -64,7 +64,7 @@
                     <navigationItem key="navigationItem" title="Friends" id="qO4-UD-0Zz">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="a8Y-8P-P9v">
                             <connections>
-                                <segue destination="Y88-od-vkw" kind="push" id="Gke-Cu-YzL"/>
+                                <segue destination="Y88-od-vkw" kind="push" identifier="showEditFriends" id="Gke-Cu-YzL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -109,7 +109,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="3wf-Qi-W83">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Celda" id="3wf-Qi-W83">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3wf-Qi-W83" id="iVQ-n3-iU2">
                                     <autoresizingMask key="autoresizingMask"/>

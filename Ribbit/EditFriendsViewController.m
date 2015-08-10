@@ -8,6 +8,7 @@
 
 #import "EditFriendsViewController.h"
 
+
 @interface EditFriendsViewController ()
 
 @end
@@ -35,6 +36,7 @@
         }
     }];
     
+    
 }
 
 
@@ -58,6 +60,18 @@
     // Configure the cell...
     PFUser *user = [self.allUsers objectAtIndex:indexPath.row];
     cell.textLabel.text = user.username;
+    
+    // Comprobamos si el usuario de la celda es amigo
+    
+    if ([self isFriend:user]) {
+        // Si es amigo, ponemos un check
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        
+    } else {
+        // Si no no se pone nada
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+
 
     return cell;
 }
@@ -68,13 +82,35 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     // Deseleccionamos la celda pulsada, si no se queda marcada
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    // Establecemos el check al lado de la celda
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
     
-    // Establecemos la relacion en parse
-    PFRelation *friendsRelation = [self.currentUser relationForKey:@"friendsRelations"];
     PFUser *user = [self.allUsers objectAtIndex:indexPath.row];
-    [friendsRelation addObject:user];
+    PFRelation *friendsRelation = [self.currentUser relationForKey:@"friendsRelations"];
+
+    if ([self isFriend:(user)]) {
+    // Borramos amigo
+        // Quitamos el check
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        // Borramos el amigo del array de amigos (local)
+        for (PFUser *friend in self.friends) {
+            if ([friend.objectId isEqualToString:user.objectId]) {
+                [self.friends removeObject:friend];
+                break;
+            }
+        }
+        // Borramos de parse
+        [friendsRelation removeObject:user];
+        
+        
+    } else {
+        // Añadimos el checkmark
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.friends addObject:user];
+        
+        // Establecemos la relacion en parse
+        [friendsRelation addObject:user];
+    }
+    
+    // Guardamos en parse
     [self.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error) {
             NSLog(@"Error %@ %@", error, [error userInfo]);
@@ -83,14 +119,30 @@
 }
 
 
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+/*
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-}
+    }
 */
+
+#pragma mark - Helper methods
+- (BOOL)isFriend:(PFUser *)user {
+    
+    // Método que comprueba si un usuario está en la lista de amigos
+    // La lista de amigos la obtenemos desde el viewcontroller Friends, con un segue
+    // y se guarda en la propiedad array friends
+    
+    // Si en la lista de usuarios alguno es igual al usuario que pasamos como parámetro, devolvemos YES;
+    for (PFUser *friend in self.friends) {
+        if ([friend.objectId isEqualToString:user.objectId]) {
+            return YES;
+        }
+    }
+    return NO;
+    
+}
 
 @end
