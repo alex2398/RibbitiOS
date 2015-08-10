@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD060BF31B78A4C30004B3A4 /* EditFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD060BF21B78A4C30004B3A4 /* EditFriendsViewController.m */; };
 		BD6001CD1B74B2050010957E /* InboxTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6001CC1B74B2050010957E /* InboxTableViewController.m */; };
 		BD6A06501B749B37002995C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6A064F1B749B37002995C3 /* main.m */; };
 		BD6A06531B749B37002995C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6A06521B749B37002995C3 /* AppDelegate.m */; };
@@ -45,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BD060BF11B78A4C30004B3A4 /* EditFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFriendsViewController.h; sourceTree = "<group>"; };
+		BD060BF21B78A4C30004B3A4 /* EditFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditFriendsViewController.m; sourceTree = "<group>"; };
 		BD6001CB1B74B2050010957E /* InboxTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxTableViewController.h; sourceTree = "<group>"; };
 		BD6001CC1B74B2050010957E /* InboxTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxTableViewController.m; sourceTree = "<group>"; };
 		BD6A064A1B749B37002995C3 /* Ribbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ribbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +149,8 @@
 				BD90A6371B74CEB200729666 /* LogInViewController.m */,
 				BD90A6391B74CED000729666 /* SignupViewController.h */,
 				BD90A63A1B74CED000729666 /* SignupViewController.m */,
+				BD060BF11B78A4C30004B3A4 /* EditFriendsViewController.h */,
+				BD060BF21B78A4C30004B3A4 /* EditFriendsViewController.m */,
 				BD6A06571B749B37002995C3 /* Main.storyboard */,
 				BD6A065C1B749B37002995C3 /* LaunchScreen.xib */,
 				BD6A065A1B749B37002995C3 /* Images.xcassets */,
@@ -306,6 +311,7 @@
 				BD6001CD1B74B2050010957E /* InboxTableViewController.m in Sources */,
 				BD6A06561B749B37002995C3 /* ViewController.m in Sources */,
 				BD90A6381B74CEB200729666 /* LogInViewController.m in Sources */,
+				BD060BF31B78A4C30004B3A4 /* EditFriendsViewController.m in Sources */,
 				BD6A06531B749B37002995C3 /* AppDelegate.m in Sources */,
 				BD6A06501B749B37002995C3 /* main.m in Sources */,
 			);

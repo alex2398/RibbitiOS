@@ -61,11 +61,44 @@
                             <outlet property="delegate" destination="gHd-dy-Up1" id="bZs-0X-xas"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Friends" id="qO4-UD-0Zz"/>
+                    <navigationItem key="navigationItem" title="Friends" id="qO4-UD-0Zz">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="a8Y-8P-P9v">
+                            <connections>
+                                <segue destination="Y88-od-vkw" kind="push" id="Gke-Cu-YzL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nCd-cb-cwJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1734" y="854"/>
+            <point key="canvasLocation" x="1631" y="854"/>
+        </scene>
+        <!--Edit Friends-->
+        <scene sceneID="L47-0E-tsm">
+            <objects>
+                <tableViewController id="Y88-od-vkw" customClass="EditFriendsViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5O8-e5-shr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Celda" id="iVn-6B-PUo">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iVn-6B-PUo" id="x64-Jn-Moz">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Y88-od-vkw" id="ZQR-5t-b6D"/>
+                            <outlet property="delegate" destination="Y88-od-vkw" id="hzu-f7-PqM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Edit Friends" id="UqN-35-JYv"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mTV-vg-dWJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2035" y="854"/>
         </scene>
         <!--Camera-->
         <scene sceneID="q8z-9a-Q4n">
@@ -92,7 +125,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7f-Nw-kO8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2662" y="848"/>
+            <point key="canvasLocation" x="2898" y="848"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dkx-2m-G79">
@@ -258,7 +291,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t9z-YO-KP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2130" y="848"/>
+            <point key="canvasLocation" x="2494" y="848"/>
         </scene>
         <!--Inbox-->
         <scene sceneID="Hjv-ik-DJD">
