@@ -59,7 +59,6 @@
     PFUser *user = [self.allUsers objectAtIndex:indexPath.row];
     cell.textLabel.text = user.username;
 
-    
     return cell;
 }
 
