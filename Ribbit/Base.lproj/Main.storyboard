@@ -100,10 +100,10 @@
             </objects>
             <point key="canvasLocation" x="2035" y="854"/>
         </scene>
-        <!--Camera-->
+        <!--Recipients-->
         <scene sceneID="q8z-9a-Q4n">
             <objects>
-                <tableViewController id="5iS-2Y-7Tv" sceneMemberID="viewController">
+                <tableViewController id="5iS-2Y-7Tv" customClass="CameraViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Os7-lL-Hab">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,7 +121,18 @@
                             <outlet property="delegate" destination="5iS-2Y-7Tv" id="rdT-BU-YKB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Camera" id="Mh3-t3-TXt"/>
+                    <navigationItem key="navigationItem" title="Recipients" id="Mh3-t3-TXt">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="99t-Co-BwD">
+                            <connections>
+                                <action selector="cancel:" destination="5iS-2Y-7Tv" id="ST7-L9-x0Y"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="9x0-2D-EPr">
+                            <connections>
+                                <action selector="send:" destination="5iS-2Y-7Tv" id="Phb-lm-5bL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7f-Nw-kO8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

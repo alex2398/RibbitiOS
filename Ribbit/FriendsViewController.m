@@ -29,6 +29,8 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error) {
             NSLog(@"Error %@ %@", error, [error userInfo]);
+            
+
         } else {
             // Volcamos los datos devueltos a un array (propiedad)
             self.friends = objects;

@@ -26,6 +26,8 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error) {
             NSLog(@"Error %@ %@", error, [error userInfo]);
+            
+
         } else {
             // Pasamos el resultado a un array definido como propiedad
             self.allUsers = objects;
@@ -114,6 +116,8 @@
     [self.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error) {
             NSLog(@"Error %@ %@", error, [error userInfo]);
+            
+
         }
     }];
 }
