@@ -38,6 +38,7 @@
 		BD90A6381B74CEB200729666 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD90A6371B74CEB200729666 /* LogInViewController.m */; };
 		BD90A63B1B74CED000729666 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD90A63A1B74CED000729666 /* SignupViewController.m */; };
 		BDA8E4B91B78BAC900ACAAF4 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8E4B81B78BAC900ACAAF4 /* FriendsViewController.m */; };
+		BDE6E2701B7B2A7200452B83 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE6E26F1B7B2A7200452B83 /* ImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,8 @@
 		BD90A63A1B74CED000729666 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		BDA8E4B71B78BAC900ACAAF4 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
 		BDA8E4B81B78BAC900ACAAF4 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
+		BDE6E26E1B7B2A7200452B83 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		BDE6E26F1B7B2A7200452B83 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +188,8 @@
 				BDA8E4B81B78BAC900ACAAF4 /* FriendsViewController.m */,
 				BD27603B1B79DCE3001F2C41 /* CameraViewController.h */,
 				BD27603C1B79DCE3001F2C41 /* CameraViewController.m */,
+				BDE6E26E1B7B2A7200452B83 /* ImageViewController.h */,
+				BDE6E26F1B7B2A7200452B83 /* ImageViewController.m */,
 				BD6A06571B749B37002995C3 /* Main.storyboard */,
 				BD6A065C1B749B37002995C3 /* LaunchScreen.xib */,
 				BD6A065A1B749B37002995C3 /* Images.xcassets */,
@@ -348,6 +353,7 @@
 				BDA8E4B91B78BAC900ACAAF4 /* FriendsViewController.m in Sources */,
 				BD90A6381B74CEB200729666 /* LogInViewController.m in Sources */,
 				BD27605E1B7A2527001F2C41 /* SVIndefiniteAnimatedView.m in Sources */,
+				BDE6E2701B7B2A7200452B83 /* ImageViewController.m in Sources */,
 				BD060BF31B78A4C30004B3A4 /* EditFriendsViewController.m in Sources */,
 				BD27603D1B79DCE3001F2C41 /* CameraViewController.m in Sources */,
 				BD6A06531B749B37002995C3 /* AppDelegate.m in Sources */,

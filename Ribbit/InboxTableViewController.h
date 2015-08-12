@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface InboxTableViewController : UITableViewController
 
+@property (strong, nonatomic) NSArray *messages;
+@property (strong, nonatomic) PFObject *selectedMessage;
 - (IBAction)logout:(id)sender;
 
 @end
