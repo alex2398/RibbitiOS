@@ -18,6 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.usernameField.delegate = self;
+    self.passwordField.delegate = self;
+    self.emailField.delegate = self;
+    
 }
 
 
@@ -64,11 +68,29 @@
 
             } else {
                 // Si todo va bien, saltamos a la pantalla inicial del navigationController
-                [self.navigationController popToRootViewControllerAnimated:YES];
+                //[self.navigationController popToRootViewControllerAnimated:YES];
+                [self.navigationController popViewControllerAnimated:YES];
             }
         }];
     }
     
     
 }
+
+- (IBAction)dismiss:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+
+#pragma mark - UITextField delegate methods
+
+// Este método se llama cada vez que se pulsa return en el campo de texto
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    // Quitamos el textfield pulsado de ser el primer respondedor
+    // algo asi como quitar el foco, con lo que el teclado se oculta
+    [textField resignFirstResponder];
+    return YES;
+}
+
 @end

@@ -17,9 +17,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Ocultamos el botón para volver al inbox
-    self.navigationItem.hidesBackButton = YES;
     
+    // Ocultamos el botón para volver al inbox
+    // self.navigationItem.hidesBackButton = YES;
+    
+    
+    self.usernameField.delegate = self;
+    self.passwordField.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController.navigationBar setHidden:YES];
 }
 
 
@@ -44,19 +52,42 @@
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Make sure you entered an username and password" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
     } else {
+        // Creamos un indicador de actividad (spinner)
+        
+        [self.spinner startAnimating];
+
         [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
+            [self.spinner stopAnimating];
             if (error) {
                 // Si da error, mostramos una alerta
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry!" message:[error.userInfo objectForKey:@"error"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alertView show];
+                [self.spinner stopAnimating];
                 
             } else {
+                [NSThread sleepForTimeInterval:2];
+                [self.spinner stopAnimating];
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }
             
+            
         }];
+        
         
     }
 
+
 }
+
+#pragma mark - UITextField delegate methods
+
+// Este método se llama cada vez que se pulsa return en el campo de texto
+// Requiere delegar la cabecera en <UITextFieldDelegate>
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    // Quitamos el textfield pulsado de ser el primer respondedor
+    // algo asi como quitar el foco, con lo que el teclado se oculta
+    [textField resignFirstResponder];
+    return YES;
+}
+
 @end

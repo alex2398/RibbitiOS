@@ -17,14 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    PFUser *currentUser = [PFUser currentUser];
-    if (currentUser) {
-        NSLog(@"Current user: %@",currentUser.username);
-        
-    } else {
-        // Lanzar una view con un segue sin datos, (como un startActivity en los intents)
-        [self performSegueWithIdentifier:@"showLogIn" sender:self];
-    }
+    self.moviePlayer = [[MPMoviePlayerController alloc] init];
+    
     
     //    Notas de la implementación de Parse.com
     //    Parse.com
@@ -51,25 +45,34 @@
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Messages"];
-    [query whereKey:@"recipientsIds" equalTo:[[PFUser currentUser] objectId]];
-    [query orderByAscending:@"createdAt"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (error) {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        } else {
-            // Obtenemos los mensajes para el usuario
-            self.messages = objects;
-            [self.tableView reloadData];
-            // NSLog(@"current user : %@",[[PFUser currentUser] objectId]);
-            // NSLog(@"messages : %lu", (unsigned long)[self.messages count]);
-        }
-    }];
+    [self.navigationController.navigationBar setHidden:NO];
+    PFUser *currentUser = [PFUser currentUser];
+    
+
+    if (currentUser==nil) {
+        [self performSegueWithIdentifier:@"showLogin" sender:self];
+    } else {
+    
+        PFQuery *query = [PFQuery queryWithClassName:@"Messages"];
+        [query whereKey:@"recipientsIds" equalTo:[[PFUser currentUser] objectId]];
+        [query orderByAscending:@"createdAt"];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (error) {
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            } else {
+                // Obtenemos los mensajes para el usuario
+                self.messages = objects;
+                [self.tableView reloadData];
+                // NSLog(@"current user : %@",[[PFUser currentUser] objectId]);
+                // NSLog(@"messages : %lu", (unsigned long)[self.messages count]);
+            }
+        }];
+    }
 }
 
 - (IBAction)logout:(id)sender {
     [PFUser logOut];
-    [self performSegueWithIdentifier:@"showLogIn" sender:self];
+    [self performSegueWithIdentifier:@"showLogin" sender:self];
 }
 
 
@@ -107,33 +110,80 @@
     return cell;
 }
 
-- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
+    UIActivityIndicatorView *spinner =
+    [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    [cell setAccessoryView:spinner];
+    [spinner startAnimating];
+    //[spinner release];
+    
+    //[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     self.selectedMessage = [self.messages objectAtIndex:indexPath.row];
     NSString *messageType = [self.selectedMessage objectForKey:@"fileType"];
+    
     
     if ([messageType isEqualToString:@"image"]) {
         // Es una imagen
         [self performSegueWithIdentifier:@"showImage" sender:self];
     } else {
         // Es un video
-            }
+        
+        // CARGAR LOS DATOS
+        // Obtenemos el archivo y la url y la pasamos al media player
+        PFFile *videoFile = [self.selectedMessage objectForKey:@"file"];
+        NSURL *videoUrl = [NSURL URLWithString:videoFile.url];
+        self.moviePlayer.contentURL = videoUrl;
+        
+        // PREPARACION DEL MEDIA PLAYER
+        // Llamamos al metodo prepareToPlay
+        [self.moviePlayer prepareToPlay];
+        
+        // Llamamos a este metodo para que se muestre una miniatura en la animacion
+        // de ampliar a fullscreen en lugar de una pantalla en blanco
+        [self.moviePlayer thumbnailImageAtTime:0 timeOption:MPMovieTimeOptionNearestKeyFrame];
+        
+        // MOSTRAR EL VIDEO
+        // Añadimos el media player al view controller para poder verlo
+        [self.view addSubview:self.moviePlayer.view];
+        [self.moviePlayer setFullscreen:YES animated:YES];
+    }
+    
+    // Borramos del destinatario
+    
+    // Pasamos los destinatarios actuales del mensaje a una mutable array
+    NSMutableArray *recipientsIds = [NSMutableArray arrayWithArray:[self.selectedMessage objectForKey:@"recipientsIds"]];
+    
+    if (recipientsIds.count==1) {
+        // solo hay un destinatario con lo cual, borramos el mensaje una vez visto
+        //[self.selectedMessage deleteInBackground];
+    } else {
+        // borramos el destinatario del array
+        [recipientsIds removeObject:[[PFUser currentUser] objectId]];
+        // borramos el destinatario del mensaje en Parse
+        [self.selectedMessage setObject:recipientsIds forKey:@"recipientsIds"];
+        [self.selectedMessage saveInBackground];
+    }
 
 }
 
 
 // Con este segue ocultamos la barra de abajo del tabbar
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showLogIn"]) {
+    if ([segue.identifier isEqualToString:@"showLogin"]) {
         [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
-        /*
+                
     } else if ([segue.identifier isEqualToString:@"showImage"]) {
         [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
         // Siempre hay que hacer una instancia del view controller al que queremos pasar el segue
         ImageViewController *imageViewController = (ImageViewController *) segue.destinationViewController;
         // Una vez tenemos la instancia, podemos pasar los datos
         imageViewController.message = self.selectedMessage;
-         */
+         
     }
          
 }
