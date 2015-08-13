@@ -116,8 +116,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="DBn-Cd-CdL" kind="relationship" relationship="viewControllers" id="m5p-lr-L6X"/>
-                        <segue destination="AG5-b4-wbV" kind="relationship" relationship="viewControllers" id="mig-BW-BPI"/>
                         <segue destination="SsF-np-j0S" kind="relationship" relationship="viewControllers" id="Wdh-Tn-AOw"/>
+                        <segue destination="AG5-b4-wbV" kind="relationship" relationship="viewControllers" id="mig-BW-BPI"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wUQ-hv-OAB" userLabel="First Responder" sceneMemberID="firstResponder"/>

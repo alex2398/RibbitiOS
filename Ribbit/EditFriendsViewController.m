@@ -7,6 +7,7 @@
 //
 
 #import "EditFriendsViewController.h"
+#import "MSCellAccessory.h"
 
 
 @interface EditFriendsViewController ()
@@ -14,6 +15,8 @@
 @end
 
 @implementation EditFriendsViewController
+
+    UIColor *disclosureColor;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,6 +40,10 @@
             
         }
     }];
+    
+    // Establecemos el color para los checks (variable globarl)
+    disclosureColor = [UIColor colorWithRed:0.553 green:0.439 blue:0.718 alpha:1.0];
+    
     
     
 }
@@ -67,11 +74,11 @@
     
     if ([self isFriend:user]) {
         // Si es amigo, ponemos un check
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        cell.accessoryView = [MSCellAccessory accessoryWithType:FLAT_CHECKMARK color:disclosureColor];
         
     } else {
         // Si no no se pone nada
-        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.accessoryView = nil;
     }
 
 
@@ -91,7 +98,7 @@
     if ([self isFriend:(user)]) {
     // Borramos amigo
         // Quitamos el check
-        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.accessoryView = nil;
         // Borramos el amigo del array de amigos (local)
         for (PFUser *friend in self.friends) {
             if ([friend.objectId isEqualToString:user.objectId]) {
@@ -105,7 +112,7 @@
         
     } else {
         // Añadimos el checkmark
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        cell.accessoryView = [MSCellAccessory accessoryWithType:FLAT_CHECKMARK color:disclosureColor];
         [self.friends addObject:user];
         
         // Establecemos la relacion en parse

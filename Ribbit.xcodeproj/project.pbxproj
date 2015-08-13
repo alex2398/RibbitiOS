@@ -40,6 +40,7 @@
 		BDA8E4B91B78BAC900ACAAF4 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8E4B81B78BAC900ACAAF4 /* FriendsViewController.m */; };
 		BDD6959B1B7C89C5002545C6 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD695991B7C89C5002545C6 /* TPKeyboardAvoidingScrollView.m */; };
 		BDD695A01B7CBFD5002545C6 /* MSCellAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD6959F1B7CBFD5002545C6 /* MSCellAccessory.m */; };
+		BDD695A31B7CCBF0002545C6 /* GravatarUrlBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD695A11B7CCBF0002545C6 /* GravatarUrlBuilder.m */; };
 		BDE6E2701B7B2A7200452B83 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE6E26F1B7B2A7200452B83 /* ImageViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,8 @@
 		BDD6959A1B7C89C5002545C6 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingScrollView.h; path = ../../../../Downloads/TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		BDD6959E1B7CBFD5002545C6 /* MSCellAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSCellAccessory.h; path = ../../../../Downloads/MSCellAccessory/MSCellAccessory.h; sourceTree = "<group>"; };
 		BDD6959F1B7CBFD5002545C6 /* MSCellAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSCellAccessory.m; path = ../../../../Downloads/MSCellAccessory/MSCellAccessory.m; sourceTree = "<group>"; };
+		BDD695A11B7CCBF0002545C6 /* GravatarUrlBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GravatarUrlBuilder.m; path = ../../../../Downloads/GravatarUrlBuilder.m; sourceTree = "<group>"; };
+		BDD695A21B7CCBF0002545C6 /* GravatarUrlBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GravatarUrlBuilder.h; path = ../../../../Downloads/GravatarUrlBuilder.h; sourceTree = "<group>"; };
 		BDE6E26E1B7B2A7200452B83 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		BDE6E26F1B7B2A7200452B83 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,8 +180,6 @@
 		BD6A064C1B749B37002995C3 /* Ribbit */ = {
 			isa = PBXGroup;
 			children = (
-				BDD6959E1B7CBFD5002545C6 /* MSCellAccessory.h */,
-				BDD6959F1B7CBFD5002545C6 /* MSCellAccessory.m */,
 				BD2760571B7A2527001F2C41 /* SVProgressHUD */,
 				BD90A6171B74CA2200729666 /* Frameworks */,
 				BD6A06511B749B37002995C3 /* AppDelegate.h */,
@@ -201,6 +202,10 @@
 				BDE6E26F1B7B2A7200452B83 /* ImageViewController.m */,
 				BDD695991B7C89C5002545C6 /* TPKeyboardAvoidingScrollView.m */,
 				BDD6959A1B7C89C5002545C6 /* TPKeyboardAvoidingScrollView.h */,
+				BDD695A11B7CCBF0002545C6 /* GravatarUrlBuilder.m */,
+				BDD695A21B7CCBF0002545C6 /* GravatarUrlBuilder.h */,
+				BDD6959E1B7CBFD5002545C6 /* MSCellAccessory.h */,
+				BDD6959F1B7CBFD5002545C6 /* MSCellAccessory.m */,
 				BD6A06571B749B37002995C3 /* Main.storyboard */,
 				BD6A065A1B749B37002995C3 /* Images.xcassets */,
 				BD6A064D1B749B37002995C3 /* Supporting Files */,
@@ -368,6 +373,7 @@
 				BD060BF31B78A4C30004B3A4 /* EditFriendsViewController.m in Sources */,
 				BD27603D1B79DCE3001F2C41 /* CameraViewController.m in Sources */,
 				BDD695A01B7CBFD5002545C6 /* MSCellAccessory.m in Sources */,
+				BDD695A31B7CCBF0002545C6 /* GravatarUrlBuilder.m in Sources */,
 				BD6A06531B749B37002995C3 /* AppDelegate.m in Sources */,
 				BD2760601B7A2527001F2C41 /* SVProgressHUD.m in Sources */,
 				BD6A06501B749B37002995C3 /* main.m in Sources */,

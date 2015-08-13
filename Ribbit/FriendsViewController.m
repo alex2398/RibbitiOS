@@ -8,6 +8,7 @@
 
 #import "FriendsViewController.h"
 #import "EditFriendsViewController.h"
+#import "GravatarUrlBuilder.h"
 
 @interface FriendsViewController ()
 
@@ -65,6 +66,41 @@
     // Configure the cell...
     PFUser *user = [self.friends objectAtIndex:indexPath.row];
     cell.textLabel.text = user.username;
+    
+    // GDC Grand Central Dispatcher
+    // Lo usamos para descargar imagenes de forma asíncrona
+    
+    // Creamos la hebra
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+     // Y lo que queremos hacer de forma asíncrona dentro de ella
+    dispatch_async(queue, ^{
+        // Establecemos la imagen de gravatar
+        
+        // 1 - obtenemos el email
+        NSString *email = [user objectForKey:@"email"];
+        
+        // 2 - Obtenemos el md5
+        NSURL *imageUrl = [GravatarUrlBuilder getGravatarUrl:email];
+        
+        // 3 - Obtenemos la imagen
+        NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
+        
+        // 4 - Establecemos la imagen en la celda
+        
+        // Volvemos a la hebra principal y actualizamos la imagen y recargamos la celda
+        if (imageData!=nil) {
+            dispatch_async(dispatch_get_main_queue(),^ {
+                cell.imageView.image = [UIImage imageWithData:imageData];
+                [cell setNeedsLayout];
+            });
+        }
+
+    });
+    
+    // Foto por defecto, si no encuentra en gravatar
+    cell.imageView.image = [UIImage imageNamed:@"icon_person"];
+    
+    
     
     return cell;
 }

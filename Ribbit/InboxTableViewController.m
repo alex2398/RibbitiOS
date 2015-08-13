@@ -18,7 +18,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Inicializamos el reproductor de videos
     self.moviePlayer = [[MPMoviePlayerController alloc] init];
+    // Inicializamos el control de refresco al deslizar
+    self.refreshControl = [[UIRefreshControl alloc]init];
+    // Establecemos el método que se lanzará al hacer el refresco deslizando (selector)
+    [self.refreshControl addTarget:self action:@selector(retrieveMessages) forControlEvents:UIControlEventValueChanged];
+    
     
     
     //    Notas de la implementación de Parse.com
@@ -43,32 +49,12 @@
     //    Social.framework
 }
 
+
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     [self.navigationController.navigationBar setHidden:NO];
-    PFUser *currentUser = [PFUser currentUser];
-    
-
-    if (currentUser==nil) {
-        [self performSegueWithIdentifier:@"showLogin" sender:self];
-    } else {
-    
-        PFQuery *query = [PFQuery queryWithClassName:@"Messages"];
-        [query whereKey:@"recipientsIds" equalTo:[[PFUser currentUser] objectId]];
-        [query orderByAscending:@"createdAt"];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (error) {
-                NSLog(@"Error: %@ %@", error, [error userInfo]);
-            } else {
-                // Obtenemos los mensajes para el usuario
-                self.messages = objects;
-                [self.tableView reloadData];
-                // NSLog(@"current user : %@",[[PFUser currentUser] objectId]);
-                // NSLog(@"messages : %lu", (unsigned long)[self.messages count]);
-            }
-        }];
-    }
+    [self retrieveMessages];
 }
 
 - (IBAction)logout:(id)sender {
@@ -165,7 +151,7 @@
     
     if (recipientsIds.count==1) {
         // solo hay un destinatario con lo cual, borramos el mensaje una vez visto
-        //[self.selectedMessage deleteInBackground];
+        [self.selectedMessage deleteInBackground];
     } else {
         // borramos el destinatario del array
         [recipientsIds removeObject:[[PFUser currentUser] objectId]];
@@ -192,6 +178,42 @@
     }
          
 }
+
+#pragma mark - Helper Methods
+
+- (void)retrieveMessages {
+    PFUser *currentUser = [PFUser currentUser];
+    
+    
+    if (currentUser==nil) {
+        [self performSegueWithIdentifier:@"showLogin" sender:self];
+    } else {
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"Messages"];
+        [query whereKey:@"recipientsIds" equalTo:[[PFUser currentUser] objectId]];
+        [query orderByAscending:@"createdAt"];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (error) {
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            } else {
+                // Obtenemos los mensajes para el usuario
+                self.messages = objects;
+                [self.tableView reloadData];
+                // NSLog(@"current user : %@",[[PFUser currentUser] objectId]);
+                // NSLog(@"messages : %lu", (unsigned long)[self.messages count]);
+            }
+            
+            
+            // Una vez que termina el callback, paramos el spinner
+            if ([self.refreshControl isRefreshing]) {
+                [self.refreshControl endRefreshing];
+            }
+        }];
+    }
+    
+    
+}
+
 
 
 
