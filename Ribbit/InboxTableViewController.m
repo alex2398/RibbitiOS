@@ -8,6 +8,7 @@
 
 #import "InboxTableViewController.h"
 #import "ImageViewController.h"
+#import "MSCellAccessory.h"
 
 @interface InboxTableViewController ()
 
@@ -97,6 +98,10 @@
     // Obtenemos el mensaje del array
     PFObject *message = [self.messages objectAtIndex:indexPath.row];
     cell.textLabel.text = [message objectForKey:@"senderName"];
+    
+    // Establecemos la flechita y el color de la misma para los mensajes con la libreria MSCellAccesory (github)
+    UIColor *disclosureColor = [UIColor colorWithRed:0.553 green:0.439 blue:0.718 alpha:1.0];
+    cell.accessoryView = [MSCellAccessory accessoryWithType:FLAT_DISCLOSURE_INDICATOR color:disclosureColor];
     
     NSString *messageType = [message objectForKey:@"fileType"];
     

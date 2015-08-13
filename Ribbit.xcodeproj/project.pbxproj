@@ -20,7 +20,6 @@
 		BD6A06561B749B37002995C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6A06551B749B37002995C3 /* ViewController.m */; };
 		BD6A06591B749B37002995C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD6A06571B749B37002995C3 /* Main.storyboard */; };
 		BD6A065B1B749B37002995C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD6A065A1B749B37002995C3 /* Images.xcassets */; };
-		BD6A065E1B749B37002995C3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD6A065C1B749B37002995C3 /* LaunchScreen.xib */; };
 		BD6A066A1B749B38002995C3 /* RibbitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6A06691B749B38002995C3 /* RibbitTests.m */; };
 		BD90A61A1B74CA3D00729666 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD90A6181B74CA3D00729666 /* Bolts.framework */; };
 		BD90A61B1B74CA3D00729666 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD90A6191B74CA3D00729666 /* Parse.framework */; };
@@ -39,6 +38,8 @@
 		BD90A6381B74CEB200729666 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD90A6371B74CEB200729666 /* LogInViewController.m */; };
 		BD90A63B1B74CED000729666 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD90A63A1B74CED000729666 /* SignupViewController.m */; };
 		BDA8E4B91B78BAC900ACAAF4 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8E4B81B78BAC900ACAAF4 /* FriendsViewController.m */; };
+		BDD6959B1B7C89C5002545C6 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD695991B7C89C5002545C6 /* TPKeyboardAvoidingScrollView.m */; };
+		BDD695A01B7CBFD5002545C6 /* MSCellAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD6959F1B7CBFD5002545C6 /* MSCellAccessory.m */; };
 		BDE6E2701B7B2A7200452B83 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE6E26F1B7B2A7200452B83 /* ImageViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -75,7 +76,6 @@
 		BD6A06551B749B37002995C3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BD6A06581B749B37002995C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD6A065A1B749B37002995C3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		BD6A065D1B749B37002995C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		BD6A06631B749B37002995C3 /* RibbitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RibbitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD6A06681B749B38002995C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD6A06691B749B38002995C3 /* RibbitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RibbitTests.m; sourceTree = "<group>"; };
@@ -100,6 +100,10 @@
 		BD90A63A1B74CED000729666 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		BDA8E4B71B78BAC900ACAAF4 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
 		BDA8E4B81B78BAC900ACAAF4 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
+		BDD695991B7C89C5002545C6 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingScrollView.m; path = ../../../../Downloads/TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		BDD6959A1B7C89C5002545C6 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingScrollView.h; path = ../../../../Downloads/TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		BDD6959E1B7CBFD5002545C6 /* MSCellAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSCellAccessory.h; path = ../../../../Downloads/MSCellAccessory/MSCellAccessory.h; sourceTree = "<group>"; };
+		BDD6959F1B7CBFD5002545C6 /* MSCellAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSCellAccessory.m; path = ../../../../Downloads/MSCellAccessory/MSCellAccessory.m; sourceTree = "<group>"; };
 		BDE6E26E1B7B2A7200452B83 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		BDE6E26F1B7B2A7200452B83 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +177,8 @@
 		BD6A064C1B749B37002995C3 /* Ribbit */ = {
 			isa = PBXGroup;
 			children = (
+				BDD6959E1B7CBFD5002545C6 /* MSCellAccessory.h */,
+				BDD6959F1B7CBFD5002545C6 /* MSCellAccessory.m */,
 				BD2760571B7A2527001F2C41 /* SVProgressHUD */,
 				BD90A6171B74CA2200729666 /* Frameworks */,
 				BD6A06511B749B37002995C3 /* AppDelegate.h */,
@@ -193,8 +199,9 @@
 				BD27603C1B79DCE3001F2C41 /* CameraViewController.m */,
 				BDE6E26E1B7B2A7200452B83 /* ImageViewController.h */,
 				BDE6E26F1B7B2A7200452B83 /* ImageViewController.m */,
+				BDD695991B7C89C5002545C6 /* TPKeyboardAvoidingScrollView.m */,
+				BDD6959A1B7C89C5002545C6 /* TPKeyboardAvoidingScrollView.h */,
 				BD6A06571B749B37002995C3 /* Main.storyboard */,
-				BD6A065C1B749B37002995C3 /* LaunchScreen.xib */,
 				BD6A065A1B749B37002995C3 /* Images.xcassets */,
 				BD6A064D1B749B37002995C3 /* Supporting Files */,
 			);
@@ -331,7 +338,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD6A06591B749B37002995C3 /* Main.storyboard in Resources */,
-				BD6A065E1B749B37002995C3 /* LaunchScreen.xib in Resources */,
 				BD6A065B1B749B37002995C3 /* Images.xcassets in Resources */,
 				BD27605F1B7A2527001F2C41 /* SVProgressHUD.bundle in Resources */,
 			);
@@ -351,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD6959B1B7C89C5002545C6 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				BD90A63B1B74CED000729666 /* SignupViewController.m in Sources */,
 				BD6001CD1B74B2050010957E /* InboxTableViewController.m in Sources */,
 				BD6A06561B749B37002995C3 /* ViewController.m in Sources */,
@@ -360,6 +367,7 @@
 				BDE6E2701B7B2A7200452B83 /* ImageViewController.m in Sources */,
 				BD060BF31B78A4C30004B3A4 /* EditFriendsViewController.m in Sources */,
 				BD27603D1B79DCE3001F2C41 /* CameraViewController.m in Sources */,
+				BDD695A01B7CBFD5002545C6 /* MSCellAccessory.m in Sources */,
 				BD6A06531B749B37002995C3 /* AppDelegate.m in Sources */,
 				BD2760601B7A2527001F2C41 /* SVProgressHUD.m in Sources */,
 				BD6A06501B749B37002995C3 /* main.m in Sources */,
@@ -391,14 +399,6 @@
 				BD6A06581B749B37002995C3 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BD6A065C1B749B37002995C3 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BD6A065D1B749B37002995C3 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

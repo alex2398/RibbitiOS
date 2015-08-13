@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LogInViewController : UIViewController <UITextFieldDelegate>
+@interface LogInViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
-@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 
 - (IBAction)login:(id)sender;
 

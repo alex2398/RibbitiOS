@@ -21,9 +21,10 @@
     // Ocultamos el botón para volver al inbox
     // self.navigationItem.hidesBackButton = YES;
     
-    
+    /*
     self.usernameField.delegate = self;
     self.passwordField.delegate = self;
+     */
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -80,7 +81,8 @@
 }
 
 #pragma mark - UITextField delegate methods
-
+// Lo comentamos porque usamos el TPKeyboard AvoidingScrollView (github)
+/*
 // Este método se llama cada vez que se pulsa return en el campo de texto
 // Requiere delegar la cabecera en <UITextFieldDelegate>
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -89,5 +91,6 @@
     [textField resignFirstResponder];
     return YES;
 }
+ */
 
 @end

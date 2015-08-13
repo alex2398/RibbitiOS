@@ -22,6 +22,7 @@
                   clientKey:@"iG6gsvPsP9reNVYomwQbG5LeEnQetA53rfezrmC9"];
     // Hacemos que dure más tiempo el launchScreen
     [NSThread sleepForTimeInterval:1.5];
+    [self customizeUI];
     return YES;
 }
 
@@ -46,5 +47,57 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+-(void)customizeUI {
+    // Al customizar en AppDelegate hacemos que los cambios se produzcan en todas las vistas,
+    // si lo hacemos con el diseñador tenemos que ir una por una
+    
+    
+    // Customizamos la navigation bar mediante código
+    
+    //[[UINavigationBar appearance]setBarTintColor:[UIColor colorWithRed:0.553 green:.0435 blue:0.718 alpha:1.0]];
+    [[UINavigationBar appearance]setBackgroundImage:[UIImage imageNamed:@"navBarBackground"] forBarMetrics:UIBarMetricsDefault];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil]];
+    
+    [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]];
+    
+    // Customizamos la tab bar
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil]
+        forState:UIControlStateNormal];
+    
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    
+    UITabBar *tabBar = tabBarController.tabBar;
+    
+    UITabBarItem *inbox = [tabBar.items objectAtIndex:0];
+    UITabBarItem *friends = [tabBar.items objectAtIndex:1];
+    UITabBarItem *camera = [tabBar.items objectAtIndex:2];
+    
+    UIImage *inboxIconImage = [[UIImage imageNamed:@"inbox"]
+                               imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *cameraIconImage = [[UIImage imageNamed:@"camera"]
+                                imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *friendsIconImage = [[UIImage imageNamed:@"friends"]
+                                 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    
+    inbox = [inbox initWithTitle:nil image:inboxIconImage selectedImage:inboxIconImage];
+    camera = [camera initWithTitle:nil image:cameraIconImage selectedImage:cameraIconImage];
+    friends = [friends initWithTitle:nil image:friendsIconImage selectedImage:friendsIconImage];
+    
+    
+    
+    
+    inbox = [inbox initWithTitle:nil image:inboxIconImage selectedImage:inboxIconImage];
+    camera = [camera initWithTitle:nil image:cameraIconImage selectedImage:cameraIconImage];
+    friends = [friends initWithTitle:nil image:friendsIconImage selectedImage:friendsIconImage];
+    
+    
+    
+    
+    
+}
+
 
 @end

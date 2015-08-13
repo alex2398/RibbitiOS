@@ -18,10 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    /*
     self.usernameField.delegate = self;
     self.passwordField.delegate = self;
     self.emailField.delegate = self;
-    
+    */
 }
 
 
@@ -85,12 +86,17 @@
 
 #pragma mark - UITextField delegate methods
 
-// Este método se llama cada vez que se pulsa return en el campo de texto
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
-    // Quitamos el textfield pulsado de ser el primer respondedor
-    // algo asi como quitar el foco, con lo que el teclado se oculta
-    [textField resignFirstResponder];
-    return YES;
-}
+// Lo comentamos porque usamos el TPKeyboard AvoidingScrollView (github)
+/*
+ // Este método se llama cada vez que se pulsa return en el campo de texto
+ // Requiere delegar la cabecera en <UITextFieldDelegate>
+ -(BOOL)textFieldShouldReturn:(UITextField *)textField {
+ // Quitamos el textfield pulsado de ser el primer respondedor
+ // algo asi como quitar el foco, con lo que el teclado se oculta
+ [textField resignFirstResponder];
+ return YES;
+ }
+ */
+
 
 @end
